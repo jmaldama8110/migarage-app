@@ -4,4 +4,4 @@ import ReactDOM from 'react-dom';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
-ReactDOM.render( <p>Proyecto plantilla de React</p>, document.getElementById('app') )
+ReactDOM.render( <p>Mi garage App</p>, document.getElementById('app') )
