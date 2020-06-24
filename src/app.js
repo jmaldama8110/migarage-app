@@ -18,7 +18,8 @@ const store = configureStore();
 store.subscribe(() => {
     const state = store.getState();
     const visibleArticulos = getVisibleArticulos( state.articulos, state.filtros );
-    console.log(visibleArticulos );
+
+    
 });
 
 

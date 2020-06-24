@@ -4,7 +4,7 @@ import {editArticulo, removeArticulo} from '../actions/articulos';
 import ArticuloForm from './ArticuloForm';
 
 const EditItemPage = (props) => {
-    console.log(props)
+
     return (
         <div>
             <h1>Editar Articulo</h1>           
