@@ -3,7 +3,6 @@ import ArticulosLista from './ArtitulosList';
 import ArticulosListFiltro from './ArticulosListFiltro';
 const DashboardPage = () => (
     <div>
-
         <ArticulosListFiltro />
         <ArticulosLista />
     </div>

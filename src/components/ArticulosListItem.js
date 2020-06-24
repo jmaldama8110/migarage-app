@@ -1,15 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import {removeArticulo} from '../actions/articulos';
+import {Link} from 'react-router-dom';
 
-const ArticulosListItem = ( {dispatch, id, titulo, precio, creadoEl} ) => (
+const ArticulosListItem = ( { id, titulo, precio, creadoEl } ) => (
     <div>
-    {titulo}/{precio} / {creadoEl}
-    <button onClick={ ()=>{
-        dispatch( removeArticulo( {id} ) );
-    }}>Eliminar</button>
+    <Link to={'/edit/'+ id}>{titulo}</Link>/{precio} / {creadoEl}
     </div>
 );
 
 
-export default connect() (ArticulosListItem);
+export default ArticulosListItem;

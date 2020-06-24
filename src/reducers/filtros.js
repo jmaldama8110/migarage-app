@@ -1,10 +1,11 @@
+import moment from 'moment';
 /// Filtros reducer
 // en el orden correspondiente del arreglo filtros
 const filtrosReducerDefaultState = {
     texto:'',
     ordenarPor:'',
-    fechaInicio:undefined,
-    fechaFin:undefined
+    fechaInicio: moment().startOf('month'),
+    fechaFin: moment().endOf('month')
 };
 
 export default (state = filtrosReducerDefaultState, action) => {

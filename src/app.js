@@ -22,16 +22,16 @@ store.subscribe(() => {
 });
 
 
-const articulo1 = store.dispatch(addArticulo({ titulo: 'Sierra de mesa', precio: 1540 , creadoEl: 150 }))
-const articulo2 = store.dispatch(addArticulo({ titulo: 'Mesa de trabajo', precio: 1450 , creadoEl: 100 }))
-const articulo3 = store.dispatch(addArticulo({ titulo: 'Ingletadora', precio: 2850 , creadoEl: 50 }))
-const articulo4 = store.dispatch(addArticulo({ titulo: 'Cierra radial', precio: 990 , creadoEl: -50 }))
-const articulo5 = store.dispatch(addArticulo({ titulo: 'Rotomartillo', precio: 2500 , creadoEl: -100 }))
-const articulo6 = store.dispatch(addArticulo({ titulo: 'Juego de formones', precio: 575 , creadoEl: 150 }))
-const articulo7 = store.dispatch(addArticulo({ titulo: 'Pijas', precio: 120 , creadoEl: 100 }))
-const articulo8 = store.dispatch(addArticulo({ titulo: 'Canteadora', precio: 1850 , creadoEl: 50 }))
-const articulo9 = store.dispatch(addArticulo({ titulo: 'Cepillo', precio: 2340 , creadoEl: -50 }))
-const articulo10 = store.dispatch(addArticulo({ titulo: 'Brocas', precio: 18 , creadoEl: -100 }))
+const articulo1 = store.dispatch(addArticulo({ titulo: 'Sierra de mesa', precio: 15.40 , creadoEl: 1592326800000 }))
+const articulo2 = store.dispatch(addArticulo({ titulo: 'Mesa de trabajo', precio: 14.50 , creadoEl: 1592326800000 }))
+const articulo3 = store.dispatch(addArticulo({ titulo: 'Ingletadora', precio: 28.50 , creadoEl: 1592326800000 }))
+const articulo4 = store.dispatch(addArticulo({ titulo: 'Cierra radial', precio: 9.90 , creadoEl: 1592326800000 }))
+const articulo5 = store.dispatch(addArticulo({ titulo: 'Rotomartillo', precio: 25.10 , creadoEl: 1592326800000 }))
+const articulo6 = store.dispatch(addArticulo({ titulo: 'Juego de formones', precio: 55.75 , creadoEl: 1592326800000 }))
+const articulo7 = store.dispatch(addArticulo({ titulo: 'Pijas', precio: 121.10 , creadoEl: 1592326800000 }))
+const articulo8 = store.dispatch(addArticulo({ titulo: 'Canteadora', precio: 181.50 , creadoEl: 1592326800000 }))
+const articulo9 = store.dispatch(addArticulo({ titulo: 'Cepillo', precio: 23.40 , creadoEl: 1592326800000 }))
+const articulo10 = store.dispatch(addArticulo({ titulo: 'Brocas', precio: 18.29 , creadoEl: 1592326800000 }))
 
 // //store.dispatch(removeArticulo({ id: articuloUno.articulo.id }));
 

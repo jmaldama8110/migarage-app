@@ -5,7 +5,7 @@ import selectedArticulos from '../selectors/articulos';
 
 const ArticulosLista = (props) => (
     <div>
-        <h1>Articulos Lista</h1>
+        <h1>Lista de Articulos</h1>
         {
             props.articulos.map( (item) => (
                 <ArticulosListItem {...item}/>
