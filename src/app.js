@@ -15,13 +15,6 @@ import './styles/styles.scss';
 
 const store = configureStore();
 
-store.subscribe(() => {
-    const state = store.getState();
-    console.log( store.getState() );
-//    const visibleArticulos = getVisibleArticulos( state.articulos, state.filtros );
-
-});
-
 const articulo1 = store.dispatch(addArticulo({ titulo: 'Sierra de mesa', precio: 1500.40 , creadoEl: 1591203600000 }))
 const articulo2 = store.dispatch(addArticulo({ titulo: 'Mesa de trabajo', precio: 1400.50 , creadoEl: 1591203600000 }))
 const articulo3 = store.dispatch(addArticulo({ titulo: 'Ingletadora', precio: 2800.50 , creadoEl: 1591203600000 }))
