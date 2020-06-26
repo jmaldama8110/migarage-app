@@ -16,10 +16,10 @@ const ArticulosLista = (props) => (
 );
 
 const mapStateToProps = (state) => {
+
     return {
         articulos: selectedArticulos( state.articulos, state.filtros )
     };
 }
 
 export default connect(mapStateToProps)(ArticulosLista);
-
