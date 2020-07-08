@@ -2,13 +2,13 @@ import * as firebase from 'firebase';
 import { set } from 'numeral';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAc70sVyV76Y76EINxDuAWeOe9B96-BFQ8",
-  authDomain: "lateral-imagery-268219.firebaseapp.com",
-  databaseURL: "https://lateral-imagery-268219.firebaseio.com",
-  projectId: "lateral-imagery-268219",
-  storageBucket: "lateral-imagery-268219.appspot.com",
-  messagingSenderId: "269134659005",
-  appId: "1:269134659005:web:b10f0bb5c94b6dd2d466d4"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.FIREBASE_DATABASE_URL,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID
 };
 
 firebase.initializeApp(firebaseConfig);
