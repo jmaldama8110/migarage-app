@@ -24,7 +24,6 @@ export default (state = articulosReducerDefaultState, action) => {
             });
 
         case 'SET_ARTICULOS_LISTA':
-            
             return action.articulos;
             
 

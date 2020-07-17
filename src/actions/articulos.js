@@ -43,11 +43,11 @@ export const fxSetArticulosLista = () => {
             .once('value')
             .then((snapshot) => {
                 const listaArticulos = [];
-                snapshot.forEach( (child) => {
-                    listaArticulos.push( { id: child.key, ...child.val() } );
+                snapshot.forEach((child) => {
+                    listaArticulos.push({ id: child.key, ...child.val() });
                 });
-                
-                dispatch( setArticulosLista(listaArticulos) )
+
+                dispatch(setArticulosLista(listaArticulos))
             });
 
     };
@@ -62,6 +62,16 @@ export const removeArticulo = ({ id } = {}) => (
         id
     });
 
+export const fxRemoveArticulo = ({ id } = {}) => {
+    return (dispatch) => {
+        return db.ref('articulos/' + id)
+            .remove()
+            .then(() => {
+                dispatch(removeArticulo({ id }))
+            });
+    }
+}
+
 // EDIT articulo
 export const editArticulo = (id, dato) => (
     {
@@ -69,4 +79,14 @@ export const editArticulo = (id, dato) => (
         id,
         dato
     });
+
+export const fxEditArticulo = (id, dato) => {
+    return (dispatch) => {
+        return db.ref('articulos/' + id)
+                    .update( dato ).then( () => {
+                        dispatch( editArticulo( id, dato) )
+                    });
+    }
+
+}
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {editArticulo, removeArticulo} from '../actions/articulos';
+import {fxEditArticulo, fxRemoveArticulo} from '../actions/articulos';
 import ArticuloForm from './ArticuloForm';
 
 const EditItemPage = (props) => {
@@ -11,12 +11,12 @@ const EditItemPage = (props) => {
             <ArticuloForm
             articuloProp = {props.articulo}
             onSubmit={ (articuloUpdated)=> {
-                props.dispatch( editArticulo( props.articulo.id, articuloUpdated ) );
-                props.history.push('/');
+                props.dispatch( fxEditArticulo( props.articulo.id, articuloUpdated ) );
+                props.history.push('/dashboard');
             }}/>
             <button onClick={ ()=>{
-                props.dispatch( removeArticulo( { id: props.articulo.id} ) );
-                props.history.push('/');
+                props.dispatch( fxRemoveArticulo( { id: props.articulo.id} ) );
+                props.history.push('/dashboard');
             }}>Eliminar</button>
         </div>
 

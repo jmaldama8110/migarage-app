@@ -1,17 +1,15 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppRouter from './routers/AppRouter';
+import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import {  Provider } from 'react-redux';
 
 import { fxSetArticulosLista } from './actions/articulos';
-import getVisibleArticulos from './selectors/articulos';
-import {setTextFilter,sortByFecha,sortByPrecio,setFechaInicio, setFechaFin} from './actions/filtros';
-
+import {login, logout} from './actions/auth';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
-import './firebase/firebase';
+import {firebase} from './firebase/firebase';
 
 const store = configureStore();
 
@@ -21,13 +19,33 @@ const jsx = (
     </Provider>
 );
 
-ReactDOM.render(<p>Cargando...</p>, document.getElementById('app'))
+let estaRenderizado = false; // controla si la JSX principal ya fue renderizado
 
-    store.dispatch( fxSetArticulosLista() ).then( ()=>{
-        ReactDOM.render(jsx, document.getElementById('app'))
-    })
+const fxRenderiza = () => {
+    ReactDOM.render(jsx, document.getElementById('app'))
+    estaRenderizado = true;
+}
 
+ReactDOM.render(<p>Cargando...</p>, document.getElementById('app')) 
+
+firebase.auth().onAuthStateChanged( (usuario ) => {
+    if( usuario ) {
+        store.dispatch( login(usuario.uid) );
+        store.dispatch( fxSetArticulosLista() ).then( ()=>{
+            fxRenderiza();
+
+            if (history.location.pathname === '/') { // solamente te manda a /dashboard cuando esta en la pagina de Login /
+                history.push('/dashboard');
+            }
+        });
     
-//    ReactDOM.render(jsx, document.getElementById('app'))
+    }
+    else{
+        store.dispatch( logout() );
+        fxRenderiza();
+        history.push('/');
+    }
+});
+    
 
     

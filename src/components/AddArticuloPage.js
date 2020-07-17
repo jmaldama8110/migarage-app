@@ -9,7 +9,7 @@ const AddArticuloPage = (props) => (
         <ArticuloForm
             onSubmit={ (item)=> {
                 props.dispatch( fxAddArticulo( item ) );
-                props.history.push('/');
+                props.history.push('/dashboard');
             }}
         />
     </div>
