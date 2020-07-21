@@ -6,8 +6,8 @@ import ArticulosListTotales from './ArticulosListTotales';
 const DashboardPage = () => (
     <div>
         <ArticulosListFiltro />
-        <ArticulosListTotales />
         <ArticulosLista />
+        <ArticulosListTotales />
     </div>
 );
 

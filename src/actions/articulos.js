@@ -10,7 +10,10 @@ export const addArticulo = (articulo) => ({
 
 export const fxAddArticulo = (articuloDetalle) => {
 
-    return (dispatch) => {
+    return (dispatch, getState) => {
+
+        const usuarioid = getState().auth.uid;
+
         const { // default values 
             titulo = '',
             nota = '',
@@ -19,7 +22,7 @@ export const fxAddArticulo = (articuloDetalle) => {
 
         const articulo = { titulo, nota, precio, creadoEl };
 
-        return db.ref('articulos').push(articulo).then((ref) => {
+        return db.ref(`usuarios/${usuarioid}/articulos`).push(articulo).then((ref) => {
             dispatch(addArticulo({
                 id: ref.key,
                 ...articulo
@@ -38,8 +41,9 @@ export const setArticulosLista = (articulos) => (
 );
 
 export const fxSetArticulosLista = () => {
-    return (dispatch) => {
-        return db.ref('articulos')
+    return (dispatch, getState) => {
+        const usuarioid = getState().auth.uid;
+        return db.ref(`usuarios/${usuarioid}/articulos`)
             .once('value')
             .then((snapshot) => {
                 const listaArticulos = [];
@@ -63,8 +67,9 @@ export const removeArticulo = ({ id } = {}) => (
     });
 
 export const fxRemoveArticulo = ({ id } = {}) => {
-    return (dispatch) => {
-        return db.ref('articulos/' + id)
+    return (dispatch,getState) => {
+        const usuarioid = getState().auth.uid;
+        return db.ref(`usuarios/${usuarioid}/articulos/${id}`)
             .remove()
             .then(() => {
                 dispatch(removeArticulo({ id }))
@@ -81,8 +86,9 @@ export const editArticulo = (id, dato) => (
     });
 
 export const fxEditArticulo = (id, dato) => {
-    return (dispatch) => {
-        return db.ref('articulos/' + id)
+    return (dispatch,getState) => {
+        const usuarioid = getState().auth.uid;
+        return db.ref(`/usuarios/${usuarioid}/articulos/${id}`)
                     .update( dato ).then( () => {
                         dispatch( editArticulo( id, dato) )
                     });
