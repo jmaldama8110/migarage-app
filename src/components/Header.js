@@ -1,21 +1,24 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom'
-import {fxLogout} from '../actions/auth';
-import {connect} from 'react-redux';
+import { Link } from 'react-router-dom'
+import { fxLogout } from '../actions/auth';
+import { connect } from 'react-redux';
 
 const Header = (props) => (
-    <header>
-        <h1>Mi Garage</h1>
-        <NavLink to="/dashboard" activeClassName="is-active" >Mis Articulos</NavLink>
-        <NavLink to="/create" activeClassName="is-active">Ingresar Articulo</NavLink>
-        <NavLink to="/help" activeClassName="is-active">Ayuda</NavLink>
-        <button onClick={props.detonarLogout}>Salir</button>
+    <header className="header">
+        <div className="content-container">
+            <div className="header__content">
+                <Link className="header__titulo" to="/dashboard">
+                    <h1>Mi Garage</h1>
+                </Link>
+                <button className="button-layout button-layout--link" onClick={props.detonarLogout}>Salir</button>
+            </div>
+        </div>
     </header>
 );
 
 const mapDispatchToProps = (dispatch) => ({
-        detonarLogout: () => dispatch( fxLogout() )
+    detonarLogout: () => dispatch(fxLogout())
 });
 
-export default connect( undefined, mapDispatchToProps)(Header);
+export default connect(undefined, mapDispatchToProps)(Header);
 

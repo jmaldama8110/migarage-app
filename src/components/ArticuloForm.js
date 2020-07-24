@@ -64,10 +64,10 @@ export default class ArticuloForm extends React.Component {
 
     render() {
         return (
-            <div>
-                { this.state.error && <p>{this.state.error}</p>}
-                <form onSubmit={this.onSubmit}>
-                    <input 
+                <form className="form-input" onSubmit={this.onSubmit}>
+                    { this.state.error && <p className="form-input__error">{this.state.error}</p>}
+                    <input
+                        className="text-input"
                         type="text"
                         placeholder="Titulo..."
                         autoFocus
@@ -75,6 +75,7 @@ export default class ArticuloForm extends React.Component {
                         onChange={this.onTituloChange}
                     />
                     <input
+                        className="text-input"
                         type="text"
                         placeholder="Precio..."
                         value={this.state.precio}
@@ -91,14 +92,16 @@ export default class ArticuloForm extends React.Component {
 
                     />
                     <textarea
+                        className="textarea-input"
                         placeholder="Escribe aqui una nota sobre este articulo..."
                         value={this.state.nota}
                         onChange={this.onNotaChange}
                     >
                     </textarea>
-                    <button>Agregar Articulo</button>
+                    <div>
+                        <button className="button-layout">Guardar</button>
+                    </div>
                 </form>
-            </div>
         );
     }
 

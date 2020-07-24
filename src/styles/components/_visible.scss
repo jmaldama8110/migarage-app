@@ -1,0 +1,12 @@
+.mostrar-en-movil {
+    @media (min-width: $desktop-breakpoint) {
+        display: none;
+    }
+
+}
+.mostrar-en-escritorio {
+    @media (max-width: $desktop-breakpoint - 0.1rem) {
+        display: none;
+    }
+
+}

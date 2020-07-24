@@ -11,46 +11,66 @@ class ArticulosListFiltro extends React.Component {
         calendarFocused: null
     };
 
-    onCambioRangoFechas = ( {startDate, endDate} ) => {
-        this.props.dispatch( setFechaInicio(startDate) );
-        this.props.dispatch( setFechaFin(endDate) );
+    onCambioRangoFechas = ({ startDate, endDate }) => {
+        this.props.dispatch(setFechaInicio(startDate));
+        this.props.dispatch(setFechaFin(endDate));
 
     };
-    onCambioFocus = ( focused ) => {
-        this.setState( ()=>( { calendarFocused: focused } ));
+    onCambioFocus = (focused) => {
+        this.setState(() => ({ calendarFocused: focused }));
     }
 
-    render () {
-        return(
-        <div>
-        <input type="text" value={this.props.filtros.texto} onChange={(e) => {
-            this.props.dispatch(setTextFilter(e.target.value));
-        }} />
-        <select value={this.props.filtros.ordenarPor}
-            onChange={(e) => {
-                if (e.target.value === 'fecha') {
-                    this.props.dispatch(sortByFecha());
-                }
-                if (e.target.value === 'precio') {
-                    this.props.dispatch(sortByPrecio());
-                }
-            }}>
-            <option value="fecha">Fecha</option>
-            <option value="precio">Precio</option>
-        </select>
-        <DateRangePicker
-            startDate={this.props.filtros.fechaInicio}
-            endDate={this.props.filtros.fechaFin}
-            onDatesChange={this.onCambioRangoFechas}
-            focusedInput={this.state.calendarFocused}
-            onFocusChange={this.onCambioFocus}
-            numberOfMonths={1}
-            isOutsideRange={()=> false }
-            showClearDates={true}
-            
-        />
-    </div>
-    ) };
+    render() {
+        return (
+            <div className="content-container">
+
+                <div className="input-group">
+
+                    <div className="input-group__item">
+                        <input  className="text-input"
+                                type="text"
+                                placeholder="Buscar..."
+                                value={this.props.filtros.texto}
+                                onChange={(e) => {
+                            this.props.dispatch(setTextFilter(e.target.value));
+                        }} />
+
+                    </div>
+
+                    <div className="input-group__item">
+                        <select     className="select-input"
+                                    value={this.props.filtros.ordenarPor}
+                                    onChange={(e) => {
+                                if (e.target.value === 'Fecha') {
+                                    this.props.dispatch(sortByFecha());
+                                }
+                                if (e.target.value === 'Precio') {
+                                    this.props.dispatch(sortByPrecio());
+                                }
+                            }}>
+                            <option value="fecha">Fecha</option>
+                            <option value="precio">Precio</option>
+                        </select>
+                    </div>
+
+                    <div className="input-group__item">
+                        <DateRangePicker
+                            startDate={this.props.filtros.fechaInicio}
+                            endDate={this.props.filtros.fechaFin}
+                            onDatesChange={this.onCambioRangoFechas}
+                            focusedInput={this.state.calendarFocused}
+                            onFocusChange={this.onCambioFocus}
+                            numberOfMonths={1}
+                            isOutsideRange={() => false}
+                            showClearDates={true}
+                        />
+
+                    </div>
+
+                </div>
+            </div>
+        )
+    };
 };
 
 

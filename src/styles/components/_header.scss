@@ -1,0 +1,18 @@
+.header {
+    background-color: $azul-oscuro;
+}
+
+.header__content {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: $size_mediana;
+}
+
+.header__titulo {
+    color: white;
+    text-decoration: none;
+    h1 {
+        margin: 0;
+    }
+}

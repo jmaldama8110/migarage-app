@@ -4,8 +4,12 @@ import {fxLogin} from '../actions/auth';
 
 
 const LoginPage = ( props ) => (
-    <div>
-            <button onClick={props.detonarLogin}>Login</button>
+    <div className="box-layout">
+        <div className="box-layout__box">
+            <h1 className="box-layout__titulo">Mi Garage</h1>
+            <p>Compra, vende o haz trueque de cosas que ya no necesitas!</p>
+            <button className="button-layout" onClick={props.detonarLogin}>Sesion Google</button>
+        </div>
     </div>
 );
 

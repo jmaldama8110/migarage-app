@@ -11,6 +11,8 @@ import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import {firebase} from './firebase/firebase';
 
+import CargandoPage from './components/CargandoPage';
+
 const store = configureStore();
 
 const jsx = (
@@ -26,7 +28,7 @@ const fxRenderiza = () => {
     estaRenderizado = true;
 }
 
-ReactDOM.render(<p>Cargando...</p>, document.getElementById('app')) 
+ReactDOM.render(<CargandoPage />, document.getElementById('app')) 
 
 firebase.auth().onAuthStateChanged( (usuario ) => {
     if( usuario ) {

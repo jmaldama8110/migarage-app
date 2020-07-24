@@ -1,0 +1,22 @@
+.button-layout {
+    background: $azul-claro;
+    border: none;
+    color: white;
+    font-size: $fuente-grande;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: $size_peque;
+    padding: $size_peque;
+
+    // propiedades para el Link que no son botones
+    display: inline-block;
+    text-decoration: none;
+}
+
+.button-layout--link {
+    background: none;
+}
+
+.button-layout--secundario {
+    background: #888888;
+}

@@ -1,0 +1,13 @@
+.form-input {
+    display:flex;
+    flex-direction: column;
+    > * {
+        margin-bottom: $size_mediana;
+    }
+}
+
+.form-input__error {
+    margin: 0 0 $size_mediana 0;
+    font-style: italic;
+
+}
